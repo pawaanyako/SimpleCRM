@@ -1,0 +1,8 @@
+**/.vs/
+.git/
+**/bin/
+**/obj/
+Properties/launchSettings.json
+Dockerfile
+.dockerignore
+*.user
