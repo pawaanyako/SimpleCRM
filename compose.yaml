@@ -1,0 +1,31 @@
+services:
+  app:
+    build: .
+    ports: 
+      - "8080:8080"
+    environment:
+      - ConnectionStrings__OrdersDb=Host=db;Port=5432;Username=orders;Password=orders_pass;Database=orders_db
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: postgres:17-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=orders
+      - POSTGRES_PASSWORD=orders_pass
+      - POSTGRES_DB=orders_db
+    volumes:
+      - orders_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U orders -d orders_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  orders_pgdata:
