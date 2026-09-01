@@ -54,7 +54,7 @@ export default function OrderDetails() {
     <>
       <header className="page-header">
         <h1>Заказ {order.orderNumber}</h1>
-        <button className="header-button" onClick={() => navigate('/')}>Назад к списку</button>
+        <button onClick={() => navigate('/')}>Назад к списку</button>
       </header>
 
       <main>

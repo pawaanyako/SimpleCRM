@@ -9,4 +9,13 @@ type OrderResponse = {
     collectionDate: string;
 }
 
-export type { OrderResponse } 
+type OrderRequest = {
+    senderCity: string;
+    senderAddress: string;
+    receiverCity: string;
+    receiverAddress: string;
+    cargoWeight: number | null;
+    collectionDate: string | null;
+}
+
+export type { OrderResponse, OrderRequest } 

@@ -37,7 +37,7 @@ export default function OrdersList() {
     <>
       <header className="page-header">
         <h1>Заказы</h1>
-        <button className="header-button">Добавить заказ</button>
+        <button onClick={() => navigate('/orders/new')}>Добавить заказ</button>
       </header>
 
       <main>

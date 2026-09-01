@@ -5,27 +5,29 @@ namespace Api.Dtos
 {
     public class CreateOrderRequest
     {
-        [Required]
-        [MaxLength(100)]
+        [Required(ErrorMessage = "Укажите город отправителя")]
+        [MaxLength(100, ErrorMessage = "Слишком длинная строка")]
         public string? SenderCity { get; set; }
         
-        [Required]
-        [MaxLength(200)]
+        [Required(ErrorMessage = "Укажите адрес отправителя")]
+        [MaxLength(200, ErrorMessage = "Слишком длинная строка")]
         public string? SenderAddress { get; set; }
 
-        [Required]
-        [MaxLength(100)]
+        [Required(ErrorMessage = "Укажите город получателя")]
+        [MaxLength(100, ErrorMessage = "Слишком длинная строка")]
         public string? ReceiverCity { get; set; }
 
-        [Required]
-        [MaxLength(200)]
+        [Required(ErrorMessage = "Укажите адрес получателя")]
+        [MaxLength(200, ErrorMessage = "Слишком длинная строка")]
         public string? ReceiverAddress { get; set; }
 
-        [Required]
-        [Range(typeof(decimal), "0.01", "100000", ParseLimitsInInvariantCulture = true)]
+        [Required(ErrorMessage = "Укажите вес груза")]
+        [Range(typeof(decimal), "0.01", "100000", 
+            ParseLimitsInInvariantCulture = true, 
+            ErrorMessage = "Вес груза должен быть от {1} до {2} кг")]
         public decimal? CargoWeight { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Укажите дату забора груза")]
         public DateOnly? CollectionDate { get; set; }
 
         public static Order ToOrder(CreateOrderRequest createOrderRequest)
