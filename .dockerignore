@@ -2,7 +2,9 @@
 .git/
 **/bin/
 **/obj/
-Properties/launchSettings.json
+**/Properties/launchSettings.json
 Dockerfile
 .dockerignore
-*.user
+**/*.user
+**/node_modules
+**/dist
