@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -20,7 +27,78 @@ body {
 }
 
 h1 {
-  margin: 0 0 24px;
+  margin: 0;
   font-size: 24px;
   font-weight: 600;
+}
+
+.page-header {
+  margin: 0 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-order-button {
+  padding: 12px 16px;
+  background-color: #0004dd;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.add-order-button:hover {
+  background-color: #00039e;
+}
+
+.add-order-button:active {
+  background-color: #000279;
+  transform: translateY(1px);
+}
+
+.add-order-button:focus-visible {
+  outline: 2px solid #333;
+  outline-offset: 2px;
+}
+
+.table-wrapper {
+  border-radius: 12px;
+  overflow-x: auto;
+  border: 1px solid #aaa;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 12px 16px;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+  text-align: right;
+}
+
+thead tr {
+  text-align: left;
+  background-color: #ddd;
+  border-bottom: 1px solid #aaa;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+tbody tr:hover {
+  background-color: #ccc;
+  cursor: pointer;
 }
